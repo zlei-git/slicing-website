@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#120e28"/>
+      <stop offset="25%" stop-color="#241945"/>
+      <stop offset="55%" stop-color="#4e2a5f"/>
+      <stop offset="78%" stop-color="#9d496a"/>
+      <stop offset="92%" stop-color="#d97463"/>
+      <stop offset="100%" stop-color="#f8a964"/>
+    </linearGradient>
+    <linearGradient id="sunGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff5cc" stop-opacity="0.9"/>
+      <stop offset="35%" stop-color="#f8af4e" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#e11d48" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="farPeaks" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a386c"/>
+      <stop offset="60%" stop-color="#3b234f"/>
+      <stop offset="100%" stop-color="#211438"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky Gradient -->
+  <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+
+  <!-- Glowing Setting Sun Behind Mountain Crest -->
+  <circle cx="1320" cy="520" r="260" fill="url(#sunGlow)"/>
+
+  <!-- Distant Mountain Ranges (Layer 1) -->
+  <path d="M0,640 L160,560 L380,620 L620,510 L840,580 L1080,480 L1350,540 L1580,470 L1780,530 L1920,490 L1920,1080 L0,1080 Z" fill="url(#farPeaks)" opacity="0.65"/>
+  
+  <path d="M0,690 L220,600 L490,660 L780,560 L1020,630 L1260,530 L1520,610 L1760,540 L1920,590 L1920,1080 L0,1080 Z" fill="#2d1c44" opacity="0.8"/>
+</svg>

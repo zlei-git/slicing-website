@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="segestaSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#482d5e"/>
+      <stop offset="28%" stop-color="#7a4276"/>
+      <stop offset="55%" stop-color="#c4627d"/>
+      <stop offset="78%" stop-color="#e8897c"/>
+      <stop offset="100%" stop-color="#fbc492"/>
+    </linearGradient>
+    <radialGradient id="mountainSunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8e7" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#fdbb74" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#e11d48" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#e11d48" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="riverGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="40%" stop-color="#93c5fd"/>
+      <stop offset="80%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="lampGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#segestaSky)"/>
+  <circle cx="960" cy="380" r="340" fill="url(#mountainSunGlow)"/>
+
+  <!-- Far Mountain Peaks -->
+  <g opacity="0.85">
+    <polygon points="120,440 280,260 460,450 360,460" fill="#6d4778"/>
+    <polygon points="280,260 460,450 540,430 380,250" fill="#885b92"/>
+    <polygon points="520,380 720,180 840,400" fill="#9b68a3"/>
+    <polygon points="720,180 840,400 960,340" fill="#c084bd"/>
+    <polygon points="960,340 1080,190 1220,380" fill="#c084bd"/>
+    <polygon points="1220,380 1420,240 1560,420" fill="#885b92"/>
+    <polygon points="1560,420 1780,290 1920,450" fill="#583466"/>
+  </g>
+
+  <!-- Midground Mountains -->
+  <g>
+    <polygon points="320,520 540,290 710,530" fill="#503061"/>
+    <polygon points="680,540 840,310 930,550" fill="#794a85"/>
+    <polygon points="840,310 930,550 960,460" fill="#ad729f"/>
+    <polygon points="960,460 990,550 1080,320" fill="#ad729f"/>
+    <polygon points="1080,320 1240,540 1130,550" fill="#5c386b"/>
+    <polygon points="1200,530 1380,340 1540,550" fill="#754884"/>
+  </g>
+
+  <!-- Left Perspective Cityscape -->
+  <g class="cityscape-left">
+    <polygon points="650,560 690,440 730,440 730,560" fill="#3c2656"/>
+    <polygon points="500,590 560,370 610,370 610,590" fill="#382252"/>
+    <polygon points="410,610 470,320 530,320 530,620" fill="#2c1a45"/>
+    <polygon points="120,680 120,330 330,330 330,730" fill="#27183e"/>
+    <polygon points="330,330 460,390 460,690 330,730" fill="#582a6f"/>
+    <polygon points="0,750 0,270 140,270 140,780" fill="#1b122e"/>
+
+    <!-- Windows -->
+    <g fill="#fef08a" opacity="0.85">
+      <rect x="145" y="360" width="18" height="26" rx="2"/>
+      <rect x="180" y="360" width="18" height="26" rx="2"/>
+      <rect x="215" y="360" width="18" height="26" rx="2"/>
+      <rect x="250" y="360" width="18" height="26" rx="2"/>
+      <rect x="145" y="410" width="18" height="26" rx="2"/>
+      <rect x="180" y="410" width="18" height="26" rx="2"/>
+      <rect x="215" y="410" width="18" height="26" rx="2"/>
+      <rect x="250" y="410" width="18" height="26" rx="2"/>
+      <rect x="145" y="460" width="18" height="26" rx="2"/>
+      <rect x="180" y="460" width="18" height="26" rx="2"/>
+      <rect x="215" y="460" width="18" height="26" rx="2"/>
+      <rect x="250" y="460" width="18" height="26" rx="2"/>
+      <rect x="145" y="510" width="18" height="26" rx="2"/>
+      <rect x="180" y="510" width="18" height="26" rx="2"/>
+      <rect x="215" y="510" width="18" height="26" rx="2"/>
+      <rect x="250" y="510" width="18" height="26" rx="2"/>
+    </g>
+
+    <!-- Streetlamps Left -->
+    <g>
+      <line x1="520" y1="644" x2="520" y2="605" stroke="#fde047" stroke-width="3"/>
+      <circle cx="520" cy="605" r="4.5" fill="#fef08a"/>
+      <polygon points="512,605 528,605 542,658 498,658" fill="url(#lampGlow)" opacity="0.7"/>
+
+      <line x1="360" y1="695" x2="360" y2="640" stroke="#fde047" stroke-width="4"/>
+      <circle cx="360" cy="640" r="6" fill="#fef08a"/>
+      <polygon points="350,640 370,640 390,715 330,715" fill="url(#lampGlow)" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Right Perspective Cityscape -->
+  <g class="cityscape-right">
+    <polygon points="1270,560 1270,440 1310,440 1350,560" fill="#3c2656"/>
+    <polygon points="1400,590 1400,370 1460,370 1510,590" fill="#382252"/>
+    <polygon points="1460,620 1460,330 1530,330 1590,620" fill="#6d28d9"/>
+    <polygon points="1230,730 1360,680 1360,380 1230,330" fill="#ea580c"/>
+    <polygon points="1360,680 1590,680 1590,320 1360,320" fill="#1e1b4b"/>
+    <polygon points="1630,780 1630,250 1920,250 1920,780" fill="#1b122e"/>
+
+    <!-- Windows Right -->
+    <g fill="#fed7aa" opacity="0.9">
+      <rect x="1385" y="350" width="18" height="26" rx="2"/>
+      <rect x="1420" y="350" width="18" height="26" rx="2"/>
+      <rect x="1455" y="350" width="18" height="26" rx="2"/>
+      <rect x="1490" y="350" width="18" height="26" rx="2"/>
+      <rect x="1385" y="400" width="18" height="26" rx="2"/>
+      <rect x="1420" y="400" width="18" height="26" rx="2"/>
+      <rect x="1455" y="400" width="18" height="26" rx="2"/>
+      <rect x="1490" y="400" width="18" height="26" rx="2"/>
+      <rect x="1385" y="450" width="18" height="26" rx="2"/>
+      <rect x="1420" y="450" width="18" height="26" rx="2"/>
+      <rect x="1455" y="450" width="18" height="26" rx="2"/>
+      <rect x="1490" y="450" width="18" height="26" rx="2"/>
+    </g>
+
+    <!-- Streetlamps Right -->
+    <g>
+      <line x1="1400" y1="644" x2="1400" y2="605" stroke="#fde047" stroke-width="3"/>
+      <circle cx="1400" cy="605" r="4.5" fill="#fef08a"/>
+      <polygon points="1392,605 1408,605 1422,658 1378,658" fill="url(#lampGlow)" opacity="0.7"/>
+
+      <line x1="1560" y1="695" x2="1560" y2="640" stroke="#fde047" stroke-width="4"/>
+      <circle cx="1560" cy="640" r="6" fill="#fef08a"/>
+      <polygon points="1550,640 1570,640 1590,715 1530,715" fill="url(#lampGlow)" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Center River Rapids & Waterfall Precipice -->
+  <g class="center-river">
+    <polygon points="940,550 980,550 1280,740 640,740" fill="#1e3a8a" opacity="0.7"/>
+    <polygon points="890,620 1030,620 1120,680 800,680" fill="url(#riverGrad)"/>
+    <polygon points="780,680 1140,680 1280,750 640,750" fill="url(#riverGrad)"/>
+
+    <!-- Foaming lines -->
+    <path d="M680,740 Q960,765 1240,740" stroke="#ffffff" stroke-width="8" fill="none" opacity="0.95"/>
+    <path d="M720,720 Q960,738 1200,720" stroke="#bae6fd" stroke-width="5" fill="none" opacity="0.8"/>
+
+    <!-- River Boulders -->
+    <polygon points="620,745 680,675 750,685 790,750" fill="#4a2559"/>
+    <polygon points="910,690 940,660 980,665 990,695" fill="#4a2559"/>
+    <polygon points="1130,750 1170,685 1240,675 1300,745" fill="#4a2559"/>
+  </g>
+
+  <!-- Cliff Lip Plunging Into Waterfall Below -->
+  <g>
+    <polygon points="0,810 580,750 780,750 780,840 540,860 0,900" fill="#201330"/>
+    <polygon points="1920,810 1340,750 1140,750 1140,840 1380,860 1920,900" fill="#201330"/>
+    <path d="M740,750 L1180,750 L1180,820 L740,820 Z" fill="#e0f2fe" opacity="0.9"/>
+    <path d="M760,790 L1160,790 L1160,1080 L760,1080 Z" fill="url(#riverGrad)" opacity="0.95"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #0a0a14; color: #fff; font-family: sans-serif; margin: 0; padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { background: #16162a; border-radius: 12px; overflow: hidden; padding: 16px; border: 1px solid #333; }
+  h2 { margin: 0 0 12px 0; font-size: 16px; color: #ff934f; }
+  video { width: 100%; height: auto; display: block; border-radius: 8px; }
+</style>
+</head>
+<body>
+  <h1 style="margin-bottom: 24px;">Segesta Video References</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>Page 2 (Mission)</h2>
+      <video id="v1" src="/page2-mission.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="card">
+      <h2>Page 3</h2>
+      <video id="v2" src="/page3.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="card">
+      <h2>Page 4 (Last Page)</h2>
+      <video id="v3" src="/page4.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deerCoat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="50%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </linearGradient>
+    <linearGradient id="deerChest" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffedd5"/>
+    </linearGradient>
+  </defs>
+
+  <g id="sika-deer" transform="translate(40, 40)">
+    <!-- Back Leg (Far) -->
+    <path d="M160,260 Q175,320 180,380 L195,380 Q190,320 180,260 Z" fill="#9a3412"/>
+    <!-- Front Leg (Far) -->
+    <path d="M290,260 Q285,320 280,380 L295,380 Q305,320 310,260 Z" fill="#9a3412"/>
+
+    <!-- Deer Body -->
+    <ellipse cx="230" cy="240" rx="90" ry="55" fill="url(#deerCoat)"/>
+    <path d="M145,235 Q130,225 125,245 Q135,260 150,250 Z" fill="#ffffff"/> <!-- White tail patch -->
+
+    <!-- White Spots on Flank -->
+    <circle cx="210" cy="225" r="4.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="235" cy="220" r="5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="260" cy="228" r="4.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="195" cy="242" r="4" fill="#ffffff" opacity="0.85"/>
+    <circle cx="225" cy="240" r="5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="250" cy="246" r="4.5" fill="#ffffff" opacity="0.85"/>
+
+    <!-- Back Leg (Near) -->
+    <path d="M175,250 Q195,310 190,390 L205,390 Q215,310 200,245 Z" fill="url(#deerCoat)"/>
+    <polygon points="190,390 205,390 202,398 188,398" fill="#1c1917"/> <!-- Hoof -->
+
+    <!-- Front Leg (Near) -->
+    <path d="M275,255 Q270,320 265,390 L280,390 Q290,320 295,250 Z" fill="url(#deerCoat)"/>
+    <polygon points="265,390 280,390 278,398 263,398" fill="#1c1917"/> <!-- Hoof -->
+
+    <!-- Chest & Neck -->
+    <path d="M280,240 Q310,220 320,160 L285,170 Q270,220 240,240 Z" fill="url(#deerCoat)"/>
+    <path d="M295,230 Q315,200 318,170 Q305,185 285,215 Z" fill="url(#deerChest)"/>
+
+    <!-- Head -->
+    <ellipse cx="330" cy="140" rx="30" ry="22" transform="rotate(-25 330 140)" fill="url(#deerCoat)"/>
+    <!-- Muzzle / Nose -->
+    <ellipse cx="355" cy="148" rx="14" ry="11" fill="#fed7aa"/>
+    <ellipse cx="364" cy="145" rx="4" ry="3" fill="#1c1917"/>
+
+    <!-- Large Gentle Eye -->
+    <ellipse cx="334" cy="132" rx="6" ry="7" fill="#1c1917"/>
+    <circle cx="336" cy="130" r="2" fill="#ffffff"/>
+
+    <!-- Ears -->
+    <path d="M312,130 Q285,110 280,95 Q305,105 318,124 Z" fill="url(#deerCoat)"/>
+    <path d="M310,126 Q292,112 288,102 Q302,108 312,122 Z" fill="#ffedd5"/>
+
+    <path d="M328,124 Q318,95 320,80 Q335,95 334,120 Z" fill="url(#deerCoat)"/>
+    <path d="M326,120 Q320,100 322,90 Q330,100 330,118 Z" fill="#ffedd5"/>
+  </g>
+</svg>

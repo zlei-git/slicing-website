@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   AUTHENTIC WEBCARE IDN FONT-FACE DEFINITIONS (100% Offline Local)
+   ========================================================================== */
+
+/* Creato Display: Headlines, Titles, Big Editorial Displays */
+@font-face {
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Isidora Sans: Body Copy, Subtitles, Paragraphs */
+@font-face {
+  font-family: 'Isidora Sans';
+  src: url('/fonts/Fontspring-DEMO-isidorasans-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Isidora Sans';
+  src: url('/fonts/Fontspring-DEMO-isidorasans-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Oceanwide: Overlines, Brand Wordmarks, Navigation, Labels */
+@font-face {
+  font-family: 'Oceanwide';
+  src: url('/fonts/Oceanwide-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Babel Sans: Buttons, CTA, Metrics, Tabular Telemetry */
+@font-face {
+  font-family: 'Babel Sans';
+  src: url('/fonts/BabelSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Babel Sans';
+  src: url('/fonts/BabelSans.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --void-black: #06030e;
+  --void-deep: #0c081d;
+  --twilight-900: #1c1135;
+  --sunset-purple: #5e1c66;
+  --sunset-magenta: #9b287b;
+  --amber-gold: #ff934f;
+  --amber-sun: #ffc857;
+  --plasma-cyan: #38bdf8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #06030e;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: 'Isidora Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06030e;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 147, 79, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 147, 79, 0.8);
+}
+
+/* Character Joint & Interactive Animations */
+@keyframes engineerTypingLeft {
+  0% { transform: rotate(0deg) translateY(0); }
+  100% { transform: rotate(-8deg) translateY(-2px); }
+}
+
+@keyframes engineerTypingRight {
+  0% { transform: rotate(0deg) translateY(0); }
+  100% { transform: rotate(9deg) translateY(-3px); }
+}
+
+@keyframes scientistScanSweep {
+  0% { transform: rotate(-8deg); opacity: 0.35; }
+  50% { transform: rotate(10deg); opacity: 0.9; }
+  100% { transform: rotate(-8deg); opacity: 0.35; }
+}
+
+@keyframes headNod {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg) translateY(1.5px); }
+}
+
+@keyframes assistantPacing {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(55px); }
+}
+
+@keyframes leverPull {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(18deg); }
+}
+
+@keyframes waterfallFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 800; }
+}
+
+@keyframes moltenPour {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -600; }
+}
+
+@keyframes rotateCoreClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCoreCounter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(6px, -14px); }
+}
+
+.anim-char-type-left {
+  transform-origin: center top;
+  animation: engineerTypingLeft 0.22s ease-in-out infinite alternate;
+}
+
+.anim-char-type-right {
+  transform-origin: center top;
+  animation: engineerTypingRight 0.26s ease-in-out infinite alternate 0.08s;
+}
+
+.anim-char-scan-beam {
+  transform-origin: left center;
+  animation: scientistScanSweep 2.5s ease-in-out infinite;
+}
+
+.anim-char-head-nod {
+  transform-origin: center bottom;
+  animation: headNod 3.8s ease-in-out infinite;
+}
+
+.anim-char-assistant {
+  animation: assistantPacing 10s ease-in-out infinite alternate;
+}
+
+.anim-char-lever {
+  transform-origin: bottom center;
+  animation: leverPull 3.5s ease-in-out infinite;
+}
+
+.anim-waterfall {
+  stroke-dasharray: 40, 20;
+  animation: waterfallFlow 1.6s linear infinite;
+}
+
+.anim-waterfall-fast {
+  stroke-dasharray: 60, 25;
+  animation: waterfallFlow 1.0s linear infinite;
+}
+
+.anim-molten {
+  stroke-dasharray: 50, 20;
+  animation: moltenPour 1.2s linear infinite;
+}
+
+.anim-rotate-cw {
+  transform-origin: center;
+  animation: rotateCoreClockwise 40s linear infinite;
+}
+
+.anim-rotate-ccw {
+  transform-origin: center;
+  animation: rotateCoreCounter 28s linear infinite;
+}
+
+.anim-float-orb-1 { animation: floatOrb 4.2s ease-in-out infinite; }
+.anim-float-orb-2 { animation: floatOrb 5.8s ease-in-out infinite 1.2s; }
+.anim-float-orb-3 { animation: floatOrb 3.6s ease-in-out infinite 0.7s; }
+
+/* ==========================================================================
+   ADVANCED LIVING CHARACTER & ENVIRONMENT ANIMATIONS
+   ========================================================================== */
+
+/* 1. Talking Mouth Animation (Mouth opening and closing naturally while speaking) */
+@keyframes mouthTalkLoop {
+  0%, 100% { transform: scaleY(0.25); }
+  25% { transform: scaleY(1.4); }
+  50% { transform: scaleY(0.6); }
+  75% { transform: scaleY(1.7); }
+}
+
+.anim-mouth-talk {
+  transform-origin: center center;
+  animation: mouthTalkLoop 0.45s ease-in-out infinite;
+}
+
+.anim-mouth-talk-fast {
+  transform-origin: center center;
+  animation: mouthTalkLoop 0.32s ease-in-out infinite 0.1s;
+}
+
+/* 2. Head Tilt & Speaking Motion */
+@keyframes headSpeakMotion {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  30% { transform: rotate(-2.5deg) translateY(-1px); }
+  70% { transform: rotate(2deg) translateY(0.5px); }
+}
+
+.anim-head-speak {
+  transform-origin: center bottom;
+  animation: headSpeakMotion 2.4s ease-in-out infinite;
+}
+
+.anim-head-speak-alt {
+  transform-origin: center bottom;
+  animation: headSpeakMotion 3.1s ease-in-out infinite 0.8s;
+}
+
+/* 3. Typing Arms & Hand Motion */
+@keyframes armTypeLeftMotion {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-7deg) translateY(-2.5px); }
+}
+
+@keyframes armTypeRightMotion {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(8deg) translateY(-3px); }
+}
+
+.anim-arm-type-left {
+  transform-origin: left top;
+  animation: armTypeLeftMotion 0.22s ease-in-out infinite alternate;
+}
+
+.anim-arm-type-right {
+  transform-origin: right top;
+  animation: armTypeRightMotion 0.26s ease-in-out infinite alternate 0.06s;
+}
+
+/* 4. Scanner Laser Arm Sweep */
+@keyframes scannerArmSweep {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(14deg); }
+}
+
+.anim-scanner-sweep {
+  transform-origin: 68px 64px;
+  animation: scannerArmSweep 2.8s ease-in-out infinite;
+}
+
+/* 5. Comms Radio Raising to Mouth */
+@keyframes radioRaiseMotion {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, -6px); }
+}
+
+.anim-radio-raise {
+  animation: radioRaiseMotion 3.6s ease-in-out infinite;
+}
+
+/* 6. Continuous River Surge & Ripple Wave */
+@keyframes riverSurgeFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -320; }
+}
+
+.anim-river-current {
+  stroke-dasharray: 24, 16;
+  animation: riverSurgeFlow 1.8s linear infinite;
+}
+
+.anim-river-current-fast {
+  stroke-dasharray: 36, 18;
+  animation: riverSurgeFlow 1.1s linear infinite;
+}
+
+/* 7. Waterfall Continuous Plunge */
+@keyframes waterfallPlungeFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 480; }
+}
+
+.anim-waterfall-plunge {
+  stroke-dasharray: 48, 20;
+  animation: waterfallPlungeFlow 1.2s linear infinite;
+}
+
+.anim-waterfall-plunge-fast {
+  stroke-dasharray: 60, 24;
+  animation: waterfallPlungeFlow 0.85s linear infinite;
+}
+
+/* 8. Birds Flight Paths Across the Homepage Sky - REMOVED */
+
+
+/* 10. Overhead Crane Horizontal Slide */
+@keyframes craneSlideMotion {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-120px, 0); }
+}
+
+.anim-crane-slide {
+  animation: craneSlideMotion 12s ease-in-out infinite;
+}
+
+/* 11. Speech Bubble Floating Bob */
+@keyframes speechBubbleBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.anim-speech-bubble {
+  animation: speechBubbleBob 3.2s ease-in-out infinite;
+}
+
+/* 12. Molten Gold Sparks */
+@keyframes sparkRiseFade {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-90px) scale(0.2); opacity: 0; }
+}
+
+.anim-spark-rise-1 { animation: sparkRiseFade 1.2s ease-out infinite; }
+.anim-spark-rise-2 { animation: sparkRiseFade 1.5s ease-out infinite 0.3s; }
+.anim-spark-rise-3 { animation: sparkRiseFade 1.1s ease-out infinite 0.6s; }
+
+/* ==========================================================================
+   SMOOTH EDITORIAL TEXT POPUP ANIMATIONS
+   ========================================================================== */
+@keyframes editorialTextPopup {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.anim-popup-title {
+  animation: editorialTextPopup 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-popup-p1 {
+  animation: editorialTextPopup 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.anim-popup-p2 {
+  animation: editorialTextPopup 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.anim-popup-tags {
+  animation: editorialTextPopup 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+.anim-popup-btn {
+  animation: editorialTextPopup 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}

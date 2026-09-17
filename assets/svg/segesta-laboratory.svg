@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="labGlassGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#2e1065" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="specimenChamberGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.75"/>
+      <stop offset="45%" stop-color="#ea580c" stop-opacity="0.4"/>
+      <stop offset="85%" stop-color="#991b1b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="holoScreenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="orbGlow" cx="35%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="60%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="50" y="40" width="700" height="920" rx="20" fill="url(#labGlassGrad)" stroke="#6366f1" stroke-width="2.5" stroke-opacity="0.4"/>
+  <line x1="50" y1="340" x2="750" y2="340" stroke="#4338ca" stroke-width="6"/>
+  <line x1="50" y1="640" x2="750" y2="640" stroke="#4338ca" stroke-width="6"/>
+
+  <!-- Level 3: Chamber with floating orbs and scientist -->
+  <g>
+    <rect x="360" y="80" width="340" height="230" rx="16" fill="url(#specimenChamberGlow)"/>
+    <circle cx="480" cy="180" r="32" fill="url(#orbGlow)"/>
+    <circle cx="560" cy="150" r="22" fill="url(#orbGlow)"/>
+    <circle cx="620" cy="220" r="28" fill="url(#orbGlow)"/>
+    <circle cx="420" cy="230" r="18" fill="url(#orbGlow)"/>
+
+    <!-- Terminal & Scientist Top -->
+    <rect x="135" y="190" width="55" height="40" rx="4" fill="url(#holoScreenGrad)" opacity="0.8"/>
+    <ellipse cx="235" cy="180" rx="10" ry="12" fill="#fed7aa"/>
+    <path d="M225,192 L245,192 L250,285 L220,285 Z" fill="#f8fafc"/>
+  </g>
+
+  <!-- Staircase 3 to 2 -->
+  <polygon points="340,340 480,480 460,480 320,340" fill="#334155"/>
+  <line x1="320" y1="300" x2="460" y2="440" stroke="#94a3b8" stroke-width="3"/>
+
+  <!-- Level 2: Catwalk & Two Scientists in Discussion -->
+  <g>
+    <rect x="460" y="480" width="290" height="25" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <line x1="460" y1="440" x2="750" y2="440" stroke="#94a3b8" stroke-width="3"/>
+
+    <!-- Scientist 1 with tablet -->
+    <ellipse cx="530" cy="405" rx="9" ry="11" fill="#fed7aa"/>
+    <path d="M520,416 L540,416 L545,495 L515,495 Z" fill="#38bdf8"/>
+    <rect x="555" y="432" width="16" height="20" rx="2" fill="#fef08a" stroke="#d97706"/>
+
+    <!-- Scientist 2 -->
+    <ellipse cx="610" cy="400" rx="9" ry="11" fill="#fbcfe8"/>
+    <path d="M600,411 L620,411 L624,495 L596,495 Z" fill="#f43f5e"/>
+  </g>
+
+  <!-- Staircase 2 to 1 -->
+  <polygon points="480,505 320,670 300,670 460,505" fill="#334155"/>
+
+  <!-- Level 1: Holographic Blueprint & Scientist -->
+  <g>
+    <rect x="50" y="880" width="700" height="80" fill="#0f172a"/>
+    <ellipse cx="280" cy="870" rx="140" ry="18" fill="#38bdf8" opacity="0.3"/>
+    <rect x="150" y="690" width="260" height="150" rx="10" fill="url(#holoScreenGrad)" opacity="0.4" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M170,810 Q220,740 270,800 T370,760" stroke="#ffffff" stroke-width="3" fill="none"/>
+
+    <!-- Scientist interacting with hologram -->
+    <ellipse cx="460" cy="745" rx="10" ry="12" fill="#fed7aa"/>
+    <path d="M450,757 L470,757 L475,855 L445,855 Z" fill="#ffffff"/>
+    <path d="M450,772 L420,762 L395,750" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

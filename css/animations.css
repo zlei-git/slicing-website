@@ -1,0 +1,128 @@
+/* ==========================================================================
+   NOTOSAN — Animations & Micro-Interactions
+   ========================================================================== */
+
+/* Waterfall Flowing Stream Streaks */
+@keyframes streamFlow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -120;
+  }
+}
+
+.stream-line {
+  animation: streamFlow 1.8s infinite linear;
+}
+
+.line-1 { animation-duration: 1.4s; }
+.line-2 { animation-duration: 2.1s; }
+.line-3 { animation-duration: 1.6s; }
+.line-4 { animation-duration: 2.4s; }
+.line-5 { animation-duration: 1.9s; }
+
+/* Swaying Reeds & Riverbank Grass */
+@keyframes reedSwayLeft {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-3.5deg); }
+}
+
+@keyframes reedSwayRight {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg); }
+}
+
+.reed {
+  transform-origin: bottom center;
+  transition: transform 0.5s ease-out;
+}
+
+.r1, .r3, .r5, .r7, .r9, .r11 {
+  animation: reedSwayLeft 5s infinite ease-in-out;
+}
+
+.r2, .r4, .r6, .r8, .r10 {
+  animation: reedSwayRight 6.2s infinite ease-in-out;
+}
+
+/* Stone Lantern Glow Breathing */
+@keyframes lanternBreathe {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 24px rgba(245, 158, 11, 0.95));
+  }
+}
+
+.stone-lantern {
+  animation: lanternBreathe 4.5s infinite ease-in-out;
+}
+
+/* Traveler Cape Wind Motion */
+@keyframes capeFlutter {
+  0%, 100% {
+    transform: rotate(0deg) skewY(0deg);
+  }
+  50% {
+    transform: rotate(-3deg) skewY(-2deg);
+  }
+}
+
+.traveler-cape {
+  transform-origin: -10px 85px;
+  animation: capeFlutter 3.2s infinite ease-in-out;
+}
+
+/* Card Glow Pulse (only applies to modal now) */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(248, 175, 78, 0.2);
+  }
+}
+
+.modal-window.card-glass {
+  animation: goldPulse 6s infinite ease-in-out;
+}
+
+/* Reveal on Scroll (.in-view) */
+.scene-section .narrative-box,
+.scene-section .nature-widget,
+.sanctuary-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scene-section.in-view .narrative-box,
+.scene-section.in-view .nature-widget,
+.scene-section.in-view .sanctuary-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scene-section.in-view .nature-widget {
+  transition-delay: 0.12s;
+}
+
+/* Hero entrance */
+.visite-narrative {
+  animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

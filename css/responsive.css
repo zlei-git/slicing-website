@@ -1,0 +1,174 @@
+/* ==========================================================================
+   SEGESTA — Responsive Stylesheet
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .split-layout,
+  .reverse-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .scene-section {
+    padding: 100px 20px 60px;
+    min-height: auto;
+  }
+
+  .side-navigation {
+    display: none;
+  }
+
+  .nav-container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    height: 68px;
+  }
+
+  .nav-group.nav-left {
+    display: none;
+  }
+
+  .nav-right .nav-link {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  /* Mobile Dropdown Menu */
+  .mobile-menu-active .nav-group.nav-left,
+  .mobile-menu-active .nav-group.nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .mobile-menu-active .site-header {
+    height: auto;
+    padding-bottom: 24px;
+    background: rgba(8, 6, 18, 0.98);
+    backdrop-filter: blur(20px);
+  }
+
+  .mobile-menu-active .nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .letter-spaced {
+    letter-spacing: 0.2em;
+    padding-left: 0.2em;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .reactor-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .card-glass {
+    padding: 24px 18px;
+  }
+
+  /* Interactive Stage Objects on Mobile */
+  .interactive-traveler-wrap {
+    width: 140px;
+    height: 170px;
+    right: 2%;
+    bottom: 5%;
+  }
+
+  .interactive-lantern-wrap {
+    width: 75px;
+    height: 100px;
+    left: 4%;
+    bottom: 8%;
+  }
+
+  .traveler-speech-bubble {
+    width: 230px;
+    right: -10px;
+    padding: 12px 14px;
+  }
+
+  .atmosphere-bar {
+    padding: 2px 4px;
+    gap: 4px;
+  }
+
+  .atmosphere-btn {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+  }
+
+  .user-profile-badge {
+    padding: 3px 8px 3px 4px;
+    gap: 6px;
+  }
+
+  .profile-role {
+    display: none;
+  }
+
+  .profile-dropdown {
+    right: -10px;
+    width: 270px;
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-meta-text {
+    display: none;
+  }
+
+  .user-profile-badge {
+    padding: 3px;
+  }
+
+  .profile-chevron {
+    display: none;
+  }
+}
+
+@media (min-width: 1600px) {
+  .scene-container {
+    max-width: 1400px;
+  }
+
+  .hero-title {
+    font-size: 6.8rem;
+  }
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="goldFacet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="45%" stop-color="#fba444"/>
+      <stop offset="100%" stop-color="#c25336"/>
+    </linearGradient>
+    <linearGradient id="shadowFacet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6d3d75"/>
+      <stop offset="60%" stop-color="#462459"/>
+      <stop offset="100%" stop-color="#231336"/>
+    </linearGradient>
+    <linearGradient id="ridgeFacet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf2f8"/>
+      <stop offset="25%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#831843"/>
+    </linearGradient>
+  </defs>
+
+  <g id="main-peak">
+    <!-- Mountain Shadow Base (Left Face) -->
+    <polygon points="1280,240 760,780 1480,820" fill="url(#shadowFacet)"/>
+    <polygon points="1280,240 1060,540 840,780 1280,740" fill="#3b1b4b" opacity="0.9"/>
+    
+    <!-- Mountain Illuminated Crest & Right Face -->
+    <polygon points="1280,240 1480,820 1820,760" fill="url(#goldFacet)"/>
+    <polygon points="1280,240 1520,580 1420,810" fill="#fdbf6f"/>
+    <polygon points="1280,240 1370,440 1460,720" fill="#f89535"/>
+
+    <!-- High Ridge Peaks / Snow Cap Accents -->
+    <polygon points="1280,240 1250,290 1280,310 1310,280" fill="#ffffff" opacity="0.95"/>
+    <polygon points="1280,310 1240,380 1320,360" fill="#fbcfe8" opacity="0.8"/>
+    <polygon points="1320,360 1360,420 1390,380" fill="#fce7f3" opacity="0.9"/>
+
+    <!-- Subsidiary Peak to the right -->
+    <polygon points="1660,480 1500,790 1880,810" fill="url(#shadowFacet)"/>
+    <polygon points="1660,480 1780,790 1920,770" fill="url(#goldFacet)" opacity="0.85"/>
+
+    <!-- Subsidiary Ridge to the left -->
+    <polygon points="680,510 380,840 920,840" fill="url(#shadowFacet)" opacity="0.95"/>
+    <polygon points="680,510 820,680 760,840" fill="#6d3968"/>
+  </g>
+</svg>

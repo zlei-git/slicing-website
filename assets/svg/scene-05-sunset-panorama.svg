@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sunset-sky-v" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#120c32"/>
+      <stop offset="35%" stop-color="#2d1348"/>
+      <stop offset="65%" stop-color="#6b1d4e"/>
+      <stop offset="85%" stop-color="#b43a42"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+
+    <radialGradient id="sun-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#fef08a"/>
+      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="water-reflect" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.75"/>
+      <stop offset="25%" stop-color="#9333ea" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#1e1b4b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#09051c"/>
+    </linearGradient>
+
+    <filter id="sun-flare" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky Gradient -->
+  <rect width="1920" height="620" fill="url(#sunset-sky-v)"/>
+
+  <!-- Golden Setting Sun -->
+  <circle cx="820" cy="560" r="160" fill="url(#sun-glow)" filter="url(#sun-flare)"/>
+  <circle cx="820" cy="560" r="48" fill="#ffffff"/>
+
+  <!-- ==============================================
+       FACETED PURPLE MOUNTAIN RANGES
+       ============================================== -->
+  <!-- Distant Ridge (Faceted Violet) -->
+  <g opacity="0.6">
+    <polygon points="0,560 180,430 360,560" fill="#381a4d"/>
+    <polygon points="320,560 480,410 680,560" fill="#482163"/>
+    <polygon points="980,560 1180,390 1420,560" fill="#3b1952"/>
+    <polygon points="1350,560 1560,370 1780,560" fill="#4c2168"/>
+    <polygon points="1720,560 1850,440 1920,560" fill="#381a4d"/>
+  </g>
+
+  <!-- Midground Faceted Purple Mountains (Dominant Mountain on Right as per PRD) -->
+  <g id="main-mountains">
+    <!-- Center-Left Smaller Peak -->
+    <polygon points="440,580 620,440 760,580" fill="#2d1342"/>
+    <polygon points="620,440 760,580 690,580" fill="#441a63"/>
+
+    <!-- Dominant Massive Right Mountain -->
+    <!-- Shadow Facet -->
+    <polygon points="1120,600 1380,320 1540,600" fill="#28103c"/>
+    <!-- Illuminated Facet -->
+    <polygon points="1380,320 1680,270 1860,600 1540,600" fill="#4d1b6e"/>
+    <polygon points="1680,270 1920,420 1920,600 1860,600" fill="#371350"/>
+    <!-- Ridge highlights -->
+    <line x1="1380" y1="320" x2="1680" y2="270" stroke="#f472b6" stroke-width="2.5" opacity="0.8"/>
+  </g>
+
+  <!-- ==============================================
+       CALM MIRROR OCEAN WATER & SUNSET REFLECTIONS
+       ============================================== -->
+  <rect y="580" width="1920" height="500" fill="url(#water-reflect)"/>
+
+  <!-- Vertical Sun Reflection Shimmer -->
+  <g stroke="#ffffff" opacity="0.75" stroke-linecap="round">
+    <line x1="790" y1="600" x2="850" y2="600" stroke-width="3" stroke="#fef08a"/>
+    <line x1="770" y1="620" x2="870" y2="620" stroke-width="3.5" stroke="#fef08a"/>
+    <line x1="750" y1="650" x2="890" y2="650" stroke-width="4" stroke="#fef08a"/>
+    <line x1="720" y1="690" x2="920" y2="690" stroke-width="4.5" stroke="#fde047"/>
+    <line x1="680" y1="740" x2="960" y2="740" stroke-width="5" stroke="#fde047"/>
+    <line x1="640" y1="800" x2="1000" y2="800" stroke-width="5.5" stroke="#f59e0b"/>
+    <line x1="580" y1="870" x2="1060" y2="870" stroke-width="6" stroke="#f59e0b"/>
+    <line x1="500" y1="960" x2="1140" y2="960" stroke-width="7" stroke="#f97316"/>
+  </g>
+
+  <!-- Foreground Dark Rocks (Left & Right) -->
+  <polygon points="0,880 240,820 380,940 320,1080 0,1080" fill="#0d0724" stroke="#251648" stroke-width="3"/>
+  <polygon points="1920,860 1680,800 1560,920 1620,1080 1920,1080" fill="#0d0724" stroke="#251648" stroke-width="3"/>
+
+  <!-- Subtle Flying Birds in Distance -->
+  <g stroke="#3b1952" stroke-width="2.5" fill="none" opacity="0.7">
+    <path d="M880,360 Q890,350 900,360 Q910,350 920,360"/>
+    <path d="M940,380 Q948,372 956,380 Q964,372 972,380"/>
+    <path d="M910,410 Q916,404 922,410 Q928,404 934,410"/>
+  </g>
+</svg>

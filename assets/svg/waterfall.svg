@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="waterFlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bae6fd" stop-opacity="0.85"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#0284c7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="foamGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Riverbank & Chasm Wall -->
+  <path d="M0,740 Q220,720 380,760 L440,1080 L0,1080 Z" fill="#1e132e"/>
+  
+  <!-- Right Chasm Wall -->
+  <path d="M680,780 Q840,750 1100,770 L1140,1080 L620,1080 Z" fill="#190f26"/>
+
+  <!-- Main Waterfall Ribbon -->
+  <g class="waterfall-group">
+    <!-- Base water body -->
+    <path d="M420,740 Q450,860 410,1080 L630,1080 Q590,880 620,740 Z" fill="url(#waterFlow)"/>
+
+    <!-- Flowing Stream Streaks -->
+    <path class="stream-line line-1" d="M445,740 Q475,880 435,1080" stroke="#ffffff" stroke-width="4" stroke-opacity="0.85" fill="none" stroke-dasharray="24 16"/>
+    <path class="stream-line line-2" d="M480,740 Q510,900 470,1080" stroke="#e0f2fe" stroke-width="5" stroke-opacity="0.9" fill="none" stroke-dasharray="32 20"/>
+    <path class="stream-line line-3" d="M525,740 Q555,890 515,1080" stroke="#ffffff" stroke-width="6" stroke-opacity="0.95" fill="none" stroke-dasharray="28 18"/>
+    <path class="stream-line line-4" d="M570,740 Q600,910 560,1080" stroke="#bae6fd" stroke-width="4" stroke-opacity="0.8" fill="none" stroke-dasharray="36 24"/>
+    <path class="stream-line line-5" d="M600,740 Q625,870 595,1080" stroke="#ffffff" stroke-width="3" stroke-opacity="0.75" fill="none" stroke-dasharray="20 14"/>
+
+    <!-- Mist / Splash Foam at the Top Lip -->
+    <ellipse cx="520" cy="744" rx="110" ry="14" fill="url(#foamGlow)"/>
+
+    <!-- Splash Foam at the Basin -->
+    <ellipse cx="510" cy="1060" rx="140" ry="24" fill="#ffffff" opacity="0.6"/>
+    <ellipse cx="520" cy="1070" rx="180" ry="32" fill="#bae6fd" opacity="0.4"/>
+  </g>
+</svg>

@@ -1,0 +1,1057 @@
+/* ==========================================================================
+   NOTOSAN — Interactive Living Characters & Stage Objects
+   ========================================================================== */
+
+/* Enable Pointer Events on Parallax Stage & Objects */
+.parallax-stage {
+  pointer-events: none;
+}
+
+.parallax-layer.layer-foreground {
+  pointer-events: none;
+}
+
+/* Allow mouse events to pass through empty sections to the interactive stage */
+.content-wrapper {
+  pointer-events: none;
+}
+
+.scene-section {
+  pointer-events: none;
+}
+
+.scene-container {
+  pointer-events: none;
+}
+
+/* Re-enable pointer events on interactive UI components */
+.scene-container a,
+.scene-container button,
+.scene-container input,
+.scene-container select,
+.scene-container textarea,
+.scene-container .narrative-box,
+.scene-container .nature-widget,
+.scene-container .hero-actions,
+.site-header,
+.side-navigation,
+.modal-backdrop,
+.interactive-object {
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   1. INTERACTIVE TRAVELER CHARACTER (KENJI)
+   ========================================================================== */
+.interactive-traveler-wrap {
+  position: absolute;
+  right: 6%;
+  bottom: 8%;
+  width: 220px;
+  height: 270px;
+  z-index: 50;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.interactive-traveler-wrap:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.interactive-traveler-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.7));
+}
+
+/* Traveler Breathing */
+.interactive-traveler-wrap {
+  animation: travelerIdleBreath 5s infinite ease-in-out;
+}
+
+@keyframes travelerIdleBreath {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Head Tilt & Direction Tracking (managed by JS via CSS var) */
+.traveler-head-group {
+  transform-origin: 94px 64px;
+  transition: transform 0.1s ease-out;
+}
+
+/* Hat tip animation when clicked */
+.traveler-head-group.tipping {
+  animation: hatTipMotion 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes hatTipMotion {
+  0% { transform: rotate(0deg) translateY(0); }
+  30% { transform: rotate(-12deg) translateY(-8px) scale(1.05); }
+  60% { transform: rotate(4deg) translateY(2px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+/* Dynamic Wind Flutter for Cape */
+.traveler-cape-group {
+  transform-origin: 80px 105px;
+  animation: capeWildFlutter 2.8s infinite ease-in-out;
+}
+
+@keyframes capeWildFlutter {
+  0%, 100% { transform: rotate(0deg) skewY(0deg) scaleX(1); }
+  35% { transform: rotate(-5deg) skewY(-4deg) scaleX(1.06); }
+  70% { transform: rotate(2deg) skewY(2deg) scaleX(0.96); }
+}
+
+.traveler-cape-group.gust {
+  animation: capeGustBurst 0.6s ease-out;
+}
+
+@keyframes capeGustBurst {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(-16deg) skewY(-10deg) scaleX(1.2); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Bamboo Staff Tapping */
+.traveler-staff {
+  transform-origin: 135px 225px;
+  transition: transform 0.2s ease;
+}
+
+.traveler-staff.tapping {
+  animation: staffTapMotion 0.5s ease-out;
+}
+
+@keyframes staffTapMotion {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(-6deg) translateY(-10px); }
+  70% { transform: rotate(2deg) translateY(3px); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Traveler Floating Speech / Wisdom Bubble */
+.traveler-speech-bubble {
+  position: absolute;
+  bottom: 104%;
+  right: -20px;
+  width: 290px;
+  background: rgba(15, 13, 30, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(248, 175, 78, 0.4);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 24px rgba(248, 175, 78, 0.2);
+  color: #ffffff;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(14px) scale(0.95);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+}
+
+.traveler-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  right: 48px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid rgba(15, 13, 30, 0.94);
+}
+
+.traveler-speech-bubble.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.bubble-tag {
+  font-family: var(--font-accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bubble-quote {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #f1f5f9;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.bubble-kanji-stamp {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.8rem;
+  color: #fda4af;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+/* Prompt Badge */
+.traveler-badge,
+.lantern-badge {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 13, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fde68a;
+  font-family: var(--font-accent);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.interactive-traveler-wrap:hover .traveler-badge,
+.interactive-lantern-wrap:hover .lantern-badge {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-3px);
+}
+
+/* ==========================================================================
+   2. INTERACTIVE STONE LANTERN (TŌRŌ)
+   ========================================================================== */
+.interactive-lantern-wrap {
+  position: absolute;
+  left: 9%;
+  bottom: 12%;
+  width: 105px;
+  height: 140px;
+  z-index: 45;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.interactive-lantern-wrap:hover {
+  transform: scale(1.05);
+}
+
+.interactive-lantern-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6));
+}
+
+/* Flame Aura Glow Modes */
+.lantern-aura {
+  transition: fill 0.5s ease, filter 0.5s ease;
+  animation: lanternAuraBreath 3.5s infinite ease-in-out;
+}
+
+@keyframes lanternAuraBreath {
+  0%, 100% { opacity: 0.6; transform: scale(0.95); }
+  50% { opacity: 0.95; transform: scale(1.08); }
+}
+
+/* Mode 1: Gold Sunlight Flame (Default) */
+.lantern-aura.mode-gold {
+  fill: rgba(245, 158, 11, 0.45);
+  filter: drop-shadow(0 0 28px rgba(245, 158, 11, 0.85));
+}
+.lantern-flame-core.mode-gold {
+  fill: #fffbeb;
+  filter: drop-shadow(0 0 14px #f59e0b);
+}
+
+/* Mode 2: Spiritual Kitsunebi Blue Flame */
+.lantern-aura.mode-blue {
+  fill: rgba(56, 189, 248, 0.5);
+  filter: drop-shadow(0 0 32px rgba(56, 189, 248, 0.9));
+}
+.lantern-flame-core.mode-blue {
+  fill: #e0f2fe;
+  filter: drop-shadow(0 0 16px #38bdf8);
+}
+
+/* Mode 3: Cinnabar Hearth Red Flame */
+.lantern-aura.mode-crimson {
+  fill: rgba(225, 29, 72, 0.55);
+  filter: drop-shadow(0 0 32px rgba(225, 29, 72, 0.9));
+}
+.lantern-flame-core.mode-crimson {
+  fill: #ffe4e6;
+  filter: drop-shadow(0 0 16px #e11d48);
+}
+
+/* Flame Burst Effect on Click */
+.lantern-flame-core.burst {
+  animation: flameIgniteBurst 0.6s ease-out;
+}
+
+@keyframes flameIgniteBurst {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.9); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   3. FOREST KODAMA SPIRITS (Cute Floating Forest Guardians)
+   ========================================================================== */
+.interactive-kodama-spirit {
+  position: absolute;
+  z-index: 48;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+.kodama-rock {
+  left: 20%;
+  bottom: 15%;
+  width: 44px;
+  height: 55px;
+  animation: kodamaIdleBob 4.2s infinite ease-in-out;
+}
+
+.kodama-reeds {
+  right: 21%;
+  bottom: 22%;
+  width: 38px;
+  height: 48px;
+  animation: kodamaIdleBob 3.6s infinite ease-in-out reverse;
+}
+
+.kodama-mist {
+  left: 36%;
+  bottom: 28%;
+  width: 34px;
+  height: 44px;
+  animation: kodamaFloatMist 6s infinite ease-in-out;
+}
+
+@keyframes kodamaIdleBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(3deg); }
+}
+
+@keyframes kodamaFloatMist {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translate(12px, -15px) rotate(-6deg); opacity: 0.95; }
+}
+
+.kodama-head {
+  transform-origin: 20px 18px;
+  transition: transform 0.15s ease-out;
+}
+
+/* Rattle head clatter on hover / click */
+.interactive-kodama-spirit:hover .kodama-head,
+.interactive-kodama-spirit.rattling .kodama-head {
+  animation: kodamaHeadRattle 0.45s infinite ease-in-out;
+}
+
+@keyframes kodamaHeadRattle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-14deg) translateX(-1px); }
+  75% { transform: rotate(14deg) translateX(1px); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ==========================================================================
+   4. INTERACTIVE SIKA DEER (In Biodiversity Section)
+   ========================================================================== */
+.nature-widget.deer-spotlight-card {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nature-widget.deer-spotlight-card:hover {
+  transform: translateY(-4px);
+}
+
+.deer-illustration {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom center;
+}
+
+.deer-spotlight-card:hover .deer-illustration {
+  transform: scale(1.06);
+}
+
+/* Deer Respectful Bow */
+.deer-spotlight-card.bowing .deer-illustration {
+  animation: deerBowingMotion 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes deerBowingMotion {
+  0% { transform: rotate(0deg) translateY(0); }
+  35% { transform: rotate(-15deg) translateY(12px) scale(0.96); }
+  70% { transform: rotate(-10deg) translateY(8px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+/* Deer Floating Heart / Sparkle reaction */
+.deer-speech-toast {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 13, 30, 0.92);
+  border: 1px solid rgba(244, 114, 182, 0.4);
+  color: #fbcfe8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.deer-spotlight-card.bowing .deer-speech-toast {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+/* ==========================================================================
+   5. ATMOSPHERE / LIVING WORLD SELECTOR
+   ========================================================================== */
+.atmosphere-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass);
+  padding: 4px 6px;
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.atmosphere-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.atmosphere-btn:hover {
+  color: #ffffff;
+}
+
+.atmosphere-btn.active {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--accent-gold);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Atmosphere Themes on Body */
+body.theme-midnight .layer-sky {
+  filter: hue-rotate(210deg) saturate(1.2) brightness(0.65);
+}
+body.theme-midnight .layer-mountain-main {
+  filter: hue-rotate(200deg) brightness(0.75) contrast(1.15);
+}
+
+body.theme-sakura .layer-sky {
+  filter: hue-rotate(330deg) saturate(1.25) brightness(1.05);
+}
+body.theme-sakura .layer-mountain-main {
+  filter: hue-rotate(320deg) brightness(1.05);
+}
+
+body.theme-emerald .layer-sky {
+  filter: hue-rotate(95deg) saturate(1.1) brightness(0.85);
+}
+body.theme-emerald .layer-mountain-main {
+  filter: hue-rotate(85deg) brightness(0.85);
+}
+
+/* ==========================================================================
+   6. INTERACTIVE WATER SURFACE CLICK PROMPT
+   ========================================================================== */
+.water-ripple-prompt {
+  position: absolute;
+  bottom: 24px;
+  left: 28%;
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(224, 242, 254, 0.65);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  user-select: none;
+  animation: promptFadeInOut 4s infinite ease-in-out;
+}
+
+@keyframes promptFadeInOut {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.85; transform: translateY(-3px); }
+}
+
+/* ==========================================================================
+   7. USER AUTH WRAP & TOP-RIGHT PROFILE BADGE
+   ========================================================================== */
+.user-auth-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 14px 4px 5px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 9999px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 14px rgba(245, 158, 11, 0.15);
+}
+
+.user-profile-badge:hover,
+.user-profile-badge.active {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(251, 191, 36, 0.8);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.35);
+  transform: translateY(-1px);
+}
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.profile-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(234, 88, 12, 0.5);
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.user-profile-badge:hover .profile-avatar {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.avatar-status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border: 2px solid #0f0d1e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.profile-meta-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.profile-name {
+  font-family: var(--font-accent);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.profile-role {
+  font-family: var(--font-accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.profile-chevron {
+  color: var(--text-muted);
+  transition: transform 0.28s ease, color 0.2s ease;
+}
+
+.user-profile-badge:hover .profile-chevron,
+.user-profile-badge.active .profile-chevron {
+  color: #ffffff;
+}
+
+.user-profile-badge.active .profile-chevron {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   8. PROFILE DROPDOWN POPOVER MENU
+   ========================================================================== */
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: 290px;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(15, 13, 30, 0.97);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 24px rgba(248, 175, 78, 0.2);
+  z-index: 1200;
+  cursor: default;
+  animation: dropdownSlideIn 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dropdown-avatar-large {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #dc2626);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+  flex-shrink: 0;
+}
+
+.dropdown-user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dropdown-user-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-user-email {
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 2px 0 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-tier-badge {
+  display: inline-block;
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fed7aa;
+  background: rgba(251, 146, 60, 0.18);
+  border: 1px solid rgba(251, 146, 60, 0.4);
+  padding: 3px 8px;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 14px 0;
+}
+
+.dropdown-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dropdown-stat-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fef08a;
+}
+
+.stat-label {
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dropdown-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdown-btn-action,
+.dropdown-btn-logout {
+  width: 100%;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-family: var(--font-accent);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.dropdown-btn-action {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.dropdown-btn-action:hover {
+  background: #ffffff;
+  color: #0f0d1e;
+}
+
+.dropdown-btn-logout {
+  background: transparent;
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.dropdown-btn-logout:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fecaca;
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+/* ==========================================================================
+   9. MODAL ACCOUNT EMBLEM & AVATAR SELECTOR
+   ========================================================================== */
+.modal-account-window {
+  max-width: 460px;
+}
+
+.modal-account-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.modal-account-emblem {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #ea580c, #dc2626);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.45), 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.emblem-avatar-preview {
+  font-size: 2.3rem;
+  line-height: 1;
+}
+
+.emblem-glow-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(251, 191, 36, 0.6);
+  animation: emblemRingRotate 14s infinite linear;
+}
+
+@keyframes emblemRingRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.emblem-kanji-seal {
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+  background: #dc2626;
+  color: #ffffff;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.modal-kanji-tag {
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.modal-title {
+  margin: 4px 0 8px;
+}
+
+.modal-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.avatar-select-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.avatar-select-btn {
+  flex: 1;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  font-size: 1.35rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.avatar-select-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(251, 191, 36, 0.5);
+  transform: translateY(-2px);
+}
+
+.avatar-select-btn.active {
+  background: rgba(251, 146, 60, 0.25);
+  border-color: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   10. SANCTUARY PASS TICKET WINDOW
+   ========================================================================== */
+.pass-ticket-window {
+  max-width: 440px;
+  padding: 36px 32px;
+}
+
+.pass-stamp-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(220, 38, 38, 0.9);
+  color: #ffffff;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 14px rgba(220, 38, 38, 0.5);
+  margin-bottom: 12px;
+}
+
+.pass-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.pass-sub {
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 22px;
+}
+
+.pass-card-visual {
+  position: relative;
+  background: linear-gradient(135deg, rgba(248, 175, 78, 0.15), rgba(217, 79, 56, 0.2));
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  box-shadow: inset 0 0 20px rgba(248, 175, 78, 0.08);
+}
+
+.pass-chip {
+  width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.pass-id-code {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fef08a;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.pass-holder-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pass-holder-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pass-tier-badge {
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #f59e0b;
+  color: #0f0d1e;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+.pass-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: left;
+  margin-bottom: 24px;
+  padding: 0 6px;
+}
+
+/* ==========================================================================
+   11. GLOBAL FLOATING TOAST NOTIFICATION
+   ========================================================================== */
+.noto-toast {
+  position: fixed;
+  top: 98px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 13, 30, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 18px rgba(245, 158, 11, 0.25);
+  z-index: 3000;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noto-toast.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.toast-message {
+  font-family: var(--font-accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fed7aa;
+  white-space: nowrap;
+}

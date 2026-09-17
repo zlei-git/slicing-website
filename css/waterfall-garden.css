@@ -1,0 +1,667 @@
+/* ==========================================================================
+   NOTOSAN — Living Cartoony Waterfall Garden & Drinking Animal
+   ========================================================================== */
+
+/* ==========================================================================
+   1. SCROLL-DRIVEN WATERFALL CASCADE (From Hero to About Scene)
+   ========================================================================== */
+.scroll-waterfall-container {
+  position: absolute;
+  top: -240px;
+  right: 18%;
+  width: 140px;
+  height: calc(100% + 280px);
+  pointer-events: none;
+  z-index: 15;
+  overflow: visible;
+}
+
+.scroll-waterfall-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Water Stream Dashoffset Flow Animation */
+.waterfall-rush-stream {
+  stroke-dasharray: 24 16;
+  animation: waterfallStreamRush 0.9s infinite linear;
+}
+
+.waterfall-rush-stream.stream-fast {
+  animation-duration: 0.65s;
+}
+
+.waterfall-rush-stream.stream-slow {
+  animation-duration: 1.2s;
+}
+
+@keyframes waterfallStreamRush {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -80; }
+}
+
+/* Water Droplets and Spray Mist */
+.waterfall-splash-particle {
+  animation: splashParticleBurst 1.2s infinite ease-out;
+}
+
+@keyframes splashParticleBurst {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(var(--dx, 15px), var(--dy, -25px)) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(calc(var(--dx, 15px) * 1.5), calc(var(--dy, -25px) + 20px)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   2. ZEN GARDEN & WATERFALL POND OASIS CONTAINER
+   ========================================================================== */
+.zen-garden-oasis {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.garden-pond-stage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 28px;
+  overflow: visible;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+}
+
+.garden-pond-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ==========================================================================
+   3. CARTOONY ANIMAL: BABY KITSUNE / RED PANDA DRINKING WATER
+   ========================================================================== */
+.drinking-animal-group {
+  cursor: pointer;
+  transform-origin: 240px 290px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.drinking-animal-group:hover {
+  transform: scale(1.05);
+}
+
+/* Body & Drinking Head Bobbing */
+.animal-head-drink {
+  transform-origin: 275px 230px;
+  animation: animalDrinkingMotion 2.6s infinite ease-in-out;
+}
+
+@keyframes animalDrinkingMotion {
+  0%, 100% {
+    /* Up, tasting and breathing happily */
+    transform: rotate(0deg) translateY(0);
+  }
+  20% {
+    /* Lowering down to water */
+    transform: rotate(14deg) translateY(12px);
+  }
+  32% {
+    /* Snout lapping water - sip 1 */
+    transform: rotate(18deg) translateY(16px);
+  }
+  42% {
+    /* Sip 2 */
+    transform: rotate(16deg) translateY(14px);
+  }
+  54% {
+    /* Sip 3 */
+    transform: rotate(19deg) translateY(17px);
+  }
+  70% {
+    /* Lift head up with satisfaction */
+    transform: rotate(-3deg) translateY(-3px);
+  }
+}
+
+/* Tongue lapping water */
+.animal-tongue {
+  animation: tongueLapWater 2.6s infinite ease-in-out;
+  transform-origin: 295px 255px;
+}
+
+@keyframes tongueLapWater {
+  0%, 25%, 65%, 100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  30%, 40%, 52% {
+    opacity: 1;
+    transform: scale(1) translateY(4px);
+  }
+  35%, 46% {
+    opacity: 0.6;
+    transform: scale(0.6) translateY(1px);
+  }
+}
+
+/* Happy Anime Eyes (Blink & Squint when drinking) */
+.animal-eyes-open {
+  animation: animalEyeToggle 2.6s infinite ease-in-out;
+}
+
+.animal-eyes-happy {
+  animation: animalHappyEyeToggle 2.6s infinite ease-in-out;
+}
+
+@keyframes animalEyeToggle {
+  0%, 18%, 70%, 100% { opacity: 1; }
+  22%, 65% { opacity: 0; }
+}
+
+@keyframes animalHappyEyeToggle {
+  0%, 18%, 70%, 100% { opacity: 0; }
+  22%, 65% { opacity: 1; }
+}
+
+/* Fluffy Tail Wagging */
+.animal-tail {
+  transform-origin: 155px 285px;
+  animation: tailCheerfulWag 2.2s infinite ease-in-out;
+}
+
+@keyframes tailCheerfulWag {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-14deg) scaleY(1.05); }
+  50% { transform: rotate(4deg) scaleY(0.96); }
+  75% { transform: rotate(-10deg) scaleY(1.03); }
+}
+
+/* Ears Twitching */
+.animal-ear-left {
+  transform-origin: 245px 195px;
+  animation: earTwitchLeft 3.5s infinite ease-in-out;
+}
+
+.animal-ear-right {
+  transform-origin: 285px 190px;
+  animation: earTwitchRight 3.2s infinite ease-in-out;
+}
+
+@keyframes earTwitchLeft {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  85% { transform: rotate(-8deg); }
+  90% { transform: rotate(4deg); }
+}
+
+@keyframes earTwitchRight {
+  0%, 82%, 100% { transform: rotate(0deg); }
+  87% { transform: rotate(9deg); }
+  93% { transform: rotate(-4deg); }
+}
+
+/* Animal Joy Bounce on Click */
+.drinking-animal-group.joyful-bounce {
+  animation: animalJoyBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes animalJoyBounce {
+  0% { transform: scale(1); }
+  35% { transform: translateY(-16px) scale(1.12) rotate(-4deg); }
+  70% { transform: translateY(4px) scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+/* Animal Speech Toast Bubble */
+.animal-speech-toast {
+  position: absolute;
+  top: 14%;
+  left: 46%;
+  transform: translateX(-50%) translateY(12px) scale(0.9);
+  background: rgba(15, 13, 30, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 146, 60, 0.5);
+  border-radius: 16px;
+  padding: 10px 18px;
+  color: #fed7aa;
+  font-family: var(--font-accent);
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), 0 0 18px rgba(251, 146, 60, 0.25);
+  z-index: 50;
+}
+
+.animal-speech-toast::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 30px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(15, 13, 30, 0.94);
+}
+
+.drinking-animal-group.show-speech + .animal-speech-toast,
+.animal-speech-toast.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* ==========================================================================
+   4. POND WATER RIPPLES & FOAM AT DRINKING SPOT
+   ========================================================================= */
+.drinking-ripple-wave {
+  animation: drinkRippleExpand 2.6s infinite ease-out;
+  transform-origin: 305px 270px;
+}
+
+@keyframes drinkRippleExpand {
+  0%, 25% {
+    r: 4;
+    opacity: 0;
+  }
+  30% {
+    r: 6;
+    opacity: 0.9;
+  }
+  50% {
+    r: 28;
+    opacity: 0.5;
+  }
+  70% {
+    r: 48;
+    opacity: 0;
+  }
+  100% {
+    r: 48;
+    opacity: 0;
+  }
+}
+
+/* Waterfall Impact Splash at Pond Basin */
+.basin-impact-foam {
+  animation: foamPulseLoop 1.4s infinite ease-in-out;
+  transform-origin: 410px 240px;
+}
+
+@keyframes foamPulseLoop {
+  0%, 100% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7)); }
+}
+
+/* ==========================================================================
+   5. SWIMMING KOI FISH IN POND
+   ========================================================================== */
+.koi-fish-group {
+  transform-origin: 220px 315px;
+  animation: koiSwimCircle 14s infinite linear;
+}
+
+@keyframes koiSwimCircle {
+  0% { transform: rotate(0deg) translateX(45px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(45px) rotate(-360deg); }
+}
+
+.koi-fin-wag {
+  animation: koiFinFlutter 0.8s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes koiFinFlutter {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(8deg); }
+}
+
+/* ==========================================================================
+   6. CARTOONY GREEN POND FROG ("KERO")
+   ========================================================================== */
+.pond-frog-group {
+  cursor: pointer;
+  transform-origin: 110px 255px;
+  transition: transform 0.25s ease;
+}
+
+.pond-frog-group:hover {
+  transform: scale(1.15);
+}
+
+.frog-throat-puff {
+  animation: throatPuffLoop 2s infinite ease-in-out;
+  transform-origin: 110px 256px;
+}
+
+@keyframes throatPuffLoop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+.pond-frog-group.hopping {
+  animation: frogHopArc 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes frogHopArc {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-26px) scale(1.12) rotate(-8deg); }
+  80% { transform: translateY(2px) scale(0.92); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ==========================================================================
+   7. BLOOMING LOTUS & LILY PADS
+   ========================================================================== */
+.lotus-flower-group {
+  transform-origin: 360px 330px;
+  animation: lotusGentleFloat 4.8s infinite ease-in-out;
+}
+
+@keyframes lotusGentleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+.lotus-center-glow {
+  animation: lotusPollenGlow 3s infinite ease-in-out;
+}
+
+@keyframes lotusPollenGlow {
+  0%, 100% { opacity: 0.65; filter: drop-shadow(0 0 4px #fbbf24); }
+  50% { opacity: 1; filter: drop-shadow(0 0 12px #f59e0b); }
+}
+
+/* Pond Telemetry Pill Strip (under the garden) */
+.garden-telemetry-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  font-family: var(--font-accent);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.garden-telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.garden-telemetry-item strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   8. SCENE 1: HERO WATERFALL CREST & RAPIDS
+   ========================================================================== */
+.hero-waterfall-crest {
+  position: absolute;
+  bottom: 0;
+  right: 12%;
+  width: 360px;
+  height: 120px;
+  z-index: 20;
+  pointer-events: auto;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.7));
+}
+
+.hero-crest-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.crest-caption {
+  position: absolute;
+  top: -24px;
+  right: 12px;
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #bae6fd;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  opacity: 0.85;
+  letter-spacing: 0.03em;
+}
+
+/* ==========================================================================
+   9. SCENE 2: GARDEN OVERFLOW SPILLWAY CATARACT
+   ========================================================================== */
+.scene2-overflow-cataract {
+  position: absolute;
+  bottom: -40px;
+  right: 16%;
+  width: 340px;
+  height: 110px;
+  z-index: 22;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.75));
+}
+
+.overflow-cataract-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.overflow-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-family: var(--font-accent);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #bae6fd;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   10. SCENE 3: BIODIVERSITY RIVER GORGE & INCOMING CASCADE
+   ========================================================================== */
+.biodiversity-river-gorge {
+  position: relative;
+  width: 100%;
+  margin-top: 48px;
+  border-radius: 24px;
+  overflow: visible;
+  z-index: 20;
+}
+
+.biodiversity-incoming-cascade {
+  position: absolute;
+  top: -260px;
+  left: 20%;
+  width: 120px;
+  height: 300px;
+  pointer-events: none;
+  z-index: 15;
+  overflow: visible;
+}
+
+.incoming-cascade-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.biodiversity-river-svg {
+  width: 100%;
+  height: 120px;
+  border-radius: 20px;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.65));
+}
+
+.river-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 18px;
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #bae6fd;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   11. SCENE 4: SANCTUARY REFLECTING LAKE BASIN & FLOATING LANTERNS
+   ========================================================================== */
+.sanctuary-ocean-basin {
+  position: relative;
+  width: 100%;
+  margin-top: 48px;
+  z-index: 20;
+}
+
+.sanctuary-basin-svg {
+  width: 100%;
+  height: 140px;
+  border-radius: 24px;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.7));
+}
+
+.floating-lake-lanterns rect {
+  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.8));
+  animation: lanternBob 3.5s infinite ease-in-out;
+}
+
+@keyframes lanternBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.sanctuary-basin-label {
+  text-align: center;
+  margin-top: 12px;
+  font-family: var(--font-accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fed7aa;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   12. GLOBAL CONTINUOUS SCROLL WATERFALL SPINE
+   ========================================================================== */
+.global-scroll-waterfall-spine {
+  position: fixed;
+  top: 0;
+  right: 18%;
+  width: 44px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 8;
+  opacity: 0.45;
+  transition: opacity 0.4s ease;
+}
+
+.global-scroll-waterfall-spine.active {
+  opacity: 0.75;
+}
+
+.global-spine-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   13. RESPONSIVE BREAKPOINTS FOR WATERFALL JOURNEY
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .scroll-waterfall-container {
+    right: 50%;
+    transform: translateX(50%);
+    top: -120px;
+    height: 180px;
+    opacity: 0.85;
+  }
+
+  .hero-waterfall-crest {
+    right: 50%;
+    transform: translateX(50%);
+    width: 300px;
+    bottom: -20px;
+  }
+
+  .scene2-overflow-cataract {
+    right: 50%;
+    transform: translateX(50%);
+    width: 280px;
+  }
+
+  .biodiversity-incoming-cascade {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -160px;
+    height: 200px;
+  }
+
+  .global-scroll-waterfall-spine {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-waterfall-container {
+    width: 100px;
+    top: -80px;
+    height: 140px;
+  }
+
+  .hero-waterfall-crest {
+    width: 240px;
+    height: 90px;
+  }
+
+  .scene2-overflow-cataract {
+    width: 230px;
+    height: 80px;
+  }
+
+  .animal-speech-toast {
+    font-size: 0.76rem;
+    padding: 8px 14px;
+    top: 10%;
+  }
+
+  .garden-telemetry-strip {
+    font-size: 0.74rem;
+    padding: 6px 12px;
+  }
+
+  .biodiversity-river-svg {
+    height: 90px;
+  }
+
+  .sanctuary-basin-svg {
+    height: 100px;
+  }
+}

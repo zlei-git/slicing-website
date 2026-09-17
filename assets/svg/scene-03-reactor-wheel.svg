@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <linearGradient id="reactor-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06061a"/>
+      <stop offset="50%" stop-color="#120c32"/>
+      <stop offset="100%" stop-color="#080820"/>
+    </linearGradient>
+
+    <radialGradient id="core-fusion-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#f43f5e"/>
+      <stop offset="65%" stop-color="#881337" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#080820" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="metallic-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b2b74"/>
+      <stop offset="35%" stop-color="#18113a"/>
+      <stop offset="70%" stop-color="#4f3899"/>
+      <stop offset="100%" stop-color="#18113a"/>
+    </linearGradient>
+
+    <filter id="fusion-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Chamber -->
+  <rect width="1920" height="1080" fill="url(#reactor-bg)"/>
+
+  <!-- Heavy Industrial Girders in Background -->
+  <g stroke="#1a1244" stroke-width="12" opacity="0.65">
+    <line x1="0" y1="180" x2="1920" y2="180"/>
+    <line x1="0" y1="360" x2="1920" y2="360"/>
+    <line x1="600" y1="0" x2="600" y2="1080"/>
+    <line x1="1200" y1="0" x2="1200" y2="1080"/>
+  </g>
+
+  <!-- ==============================================
+       LEFT: MASSIVE KINETIC TURBINE REACTOR WHEEL
+       ============================================== -->
+  <g id="kinetic-turbine" class="animated-turbine-rotor" transform="translate(480, 540)">
+    <!-- Core Fusion Ambient Aura -->
+    <circle cx="0" cy="0" r="320" fill="url(#core-fusion-glow)"/>
+
+    <!-- Outermost Structural Stator Ring -->
+    <circle cx="0" cy="0" r="410" fill="none" stroke="#2b1e5a" stroke-width="32"/>
+    <circle cx="0" cy="0" r="410" fill="none" stroke="#e11d48" stroke-width="4" opacity="0.75" filter="url(#fusion-glow)"/>
+
+    <!-- Perimeter Gear Teeth (24 teeth) -->
+    <g fill="#372670" stroke="#160e34" stroke-width="2">
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(0)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(15)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(30)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(45)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(60)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(75)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(90)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(105)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(120)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(135)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(150)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(165)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(180)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(195)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(210)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(225)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(240)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(255)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(270)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(285)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(300)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(315)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(330)" />
+      <rect x="-14" y="-435" width="28" height="24" rx="3" transform="rotate(345)" />
+    </g>
+
+    <!-- Mid Turbine Rotor Ring -->
+    <circle cx="0" cy="0" r="320" fill="none" stroke="url(#metallic-ring)" stroke-width="24"/>
+    <circle cx="0" cy="0" r="308" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.8" filter="url(#fusion-glow)"/>
+
+    <!-- 12 Radial Structural Spokes -->
+    <g stroke="#261a50" stroke-width="14">
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(0)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(30)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(60)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(90)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(120)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(150)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(180)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(210)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(240)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(270)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(300)" />
+      <line x1="0" y1="0" x2="0" y2="-310" transform="rotate(330)" />
+    </g>
+
+    <!-- Inner Glowing Spokes -->
+    <g stroke="#f43f5e" stroke-width="3" opacity="0.85" filter="url(#fusion-glow)">
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(0)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(30)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(60)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(90)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(120)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(150)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(180)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(210)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(240)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(270)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(300)" />
+      <line x1="0" y1="-80" x2="0" y2="-300" transform="rotate(330)" />
+    </g>
+
+    <!-- Center Reactor Hub -->
+    <circle cx="0" cy="0" r="90" fill="#120c30" stroke="#f43f5e" stroke-width="6" filter="url(#fusion-glow)"/>
+    <circle cx="0" cy="0" r="50" fill="#ffffff" filter="url(#fusion-glow)"/>
+
+    <!-- Pulsing Core Energy Dots -->
+    <circle cx="0" cy="-60" r="5" fill="#38bdf8" filter="url(#fusion-glow)"/>
+    <circle cx="52" cy="-30" r="5" fill="#38bdf8" filter="url(#fusion-glow)"/>
+    <circle cx="52" cy="30" r="5" fill="#38bdf8" filter="url(#fusion-glow)"/>
+    <circle cx="0" cy="60" r="5" fill="#38bdf8" filter="url(#fusion-glow)"/>
+    <circle cx="-52" cy="30" r="5" fill="#38bdf8" filter="url(#fusion-glow)"/>
+    <circle cx="-52" cy="-30" r="5" fill="#38bdf8" filter="url(#fusion-glow)"/>
+  </g>
+
+  <!-- ==============================================
+       OBSERVATION CATWALK & ENGINEERS OVERLOOKING
+       ============================================== -->
+  <g id="reactor-catwalk" transform="translate(100, 680)">
+    <!-- Catwalk Truss Platform -->
+    <rect x="0" y="0" width="760" height="30" fill="#1b1242" stroke="#3d2c80" stroke-width="3"/>
+    
+    <!-- Support Columns downward -->
+    <rect x="120" y="30" width="24" height="370" fill="#100a2c" stroke="#251b54" stroke-width="2"/>
+    <rect x="420" y="30" width="24" height="370" fill="#100a2c" stroke="#251b54" stroke-width="2"/>
+    <rect x="680" y="30" width="24" height="370" fill="#100a2c" stroke="#251b54" stroke-width="2"/>
+
+    <!-- Railing Top & Balusters -->
+    <line x1="0" y1="-50" x2="760" y2="-50" stroke="#f59e0b" stroke-width="4" opacity="0.9" filter="url(#fusion-glow)"/>
+    <line x1="20" y1="-50" x2="20" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="62" y1="-50" x2="62" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="104" y1="-50" x2="104" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="146" y1="-50" x2="146" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="188" y1="-50" x2="188" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="230" y1="-50" x2="230" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="272" y1="-50" x2="272" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="314" y1="-50" x2="314" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="356" y1="-50" x2="356" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="398" y1="-50" x2="398" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="440" y1="-50" x2="440" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="482" y1="-50" x2="482" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="524" y1="-50" x2="524" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="566" y1="-50" x2="566" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="608" y1="-50" x2="608" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="650" y1="-50" x2="650" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="692" y1="-50" x2="692" y2="0" stroke="#332468" stroke-width="2" />
+    <line x1="734" y1="-50" x2="734" y2="0" stroke="#332468" stroke-width="2" />
+
+    <!-- Living Reactor Safety Technicians -->
+    <!-- Engineer 1: Sweeping Quantum Scanner Beam -->
+    <g class="char-reactor-inspector" transform="translate(270, 0)">
+      <ellipse class="char-inspector-head" cx="15" cy="-80" rx="9" ry="10" fill="#060618"/>
+      <path class="char-inspector-body" d="M3,-68 Q15,-74 27,-68 L31,0 L-1,0 Z" fill="#0b0824"/>
+      <!-- Scanner Device with Rotating Cone Beam -->
+      <g class="char-scanner-arm">
+        <line x1="22" y1="-52" x2="45" y2="-45" stroke="#060618" stroke-width="4" stroke-linecap="round"/>
+        <rect x="42" y="-50" width="14" height="10" fill="#f43f5e" rx="2" filter="url(#fusion-glow)"/>
+        <!-- Diagnostic Hologram Projection Beam -->
+        <polygon class="char-scanner-cone" points="56,-45 130,-75 130,-15" fill="#38bdf8" opacity="0.35" filter="url(#fusion-glow)"/>
+      </g>
+    </g>
+
+    <!-- Engineer 2: Checking Core Diagnostics & Tilting Head -->
+    <g class="char-reactor-observer" transform="translate(360, 0)">
+      <ellipse class="char-observer-head" cx="0" cy="-82" rx="9" ry="10" fill="#060618"/>
+      <path class="char-observer-body" d="-12,-70 L12,-70 L15,0 L-15,0 Z" fill="#0b0824"/>
+      <line class="char-observer-arm" x1="5" y1="-55" x2="25" y2="-50" stroke="#060618" stroke-width="4" stroke-linecap="round"/>
+      <!-- Glowing Wrist Interface -->
+      <circle cx="22" cy="-51" r="3.5" fill="#f59e0b" filter="url(#fusion-glow)"/>
+    </g>
+  </g>
+</svg>

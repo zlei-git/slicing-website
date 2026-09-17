@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="portalSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d1b4e"/>
+      <stop offset="30%" stop-color="#582a6f"/>
+      <stop offset="60%" stop-color="#a8436e"/>
+      <stop offset="82%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#fde047"/>
+    </linearGradient>
+    <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="15%" stop-color="#c2410c"/>
+      <stop offset="45%" stop-color="#581c87"/>
+      <stop offset="80%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f0d24"/>
+    </linearGradient>
+    <radialGradient id="portalSun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#fef08a"/>
+      <stop offset="65%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#c2410c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hangarSteel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#0f0d24"/>
+      <stop offset="100%" stop-color="#090714"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="720" fill="url(#portalSky)"/>
+  <rect y="700" width="1920" height="380" fill="url(#oceanGrad)"/>
+
+  <circle cx="480" cy="670" r="140" fill="url(#portalSun)"/>
+  <circle cx="480" cy="670" r="70" fill="#ffffff" opacity="0.95"/>
+
+  <!-- Faceted Low-Poly Mountain Islands -->
+  <g>
+    <polygon points="560,730 840,460 960,730" fill="#85467e"/>
+    <polygon points="840,460 960,730 880,580" fill="#b8699e"/>
+    <polygon points="840,460 1120,380 1260,720" fill="#582a61"/>
+    <polygon points="1120,380 1260,720 1190,560" fill="#914481"/>
+    <polygon points="1220,720 1440,420 1620,730" fill="#441b4e"/>
+    <polygon points="1440,420 1620,730 1520,560" fill="#75357a"/>
+  </g>
+
+  <!-- Birds -->
+  <g fill="#3b1b4d">
+    <path d="M380,480 Q390,472 400,480 Q410,472 420,480 Q410,476 400,484 Q390,476 380,480 Z"/>
+    <path d="M430,460 Q438,454 446,460 Q454,454 462,460 Q454,457 446,463 Q438,457 430,460 Z"/>
+    <path d="M510,470 Q517,464 524,470 Q531,464 538,470 Q531,467 524,473 Q517,467 510,470 Z"/>
+  </g>
+
+  <!-- Hangar Cavern Arch Frame -->
+  <g id="hangar-arch-frame">
+    <polygon points="0,0 1920,0 1920,180 1560,220 960,180 360,220 0,180" fill="url(#hangarSteel)"/>
+    <polygon points="0,180 360,220 280,1080 0,1080" fill="url(#hangarSteel)"/>
+    <polygon points="1920,180 1560,220 1640,1080 1920,1080" fill="url(#hangarSteel)"/>
+    <line x1="0" y1="90" x2="1920" y2="90" stroke="#475569" stroke-width="12"/>
+    <line x1="0" y1="120" x2="1920" y2="120" stroke="#64748b" stroke-width="8"/>
+    <line x1="0" y1="140" x2="1920" y2="140" stroke="#38bdf8" stroke-width="4" stroke-dasharray="24 12"/>
+  </g>
+</svg>

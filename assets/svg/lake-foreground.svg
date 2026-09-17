@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="bankGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#241b3a"/>
+      <stop offset="60%" stop-color="#140f24"/>
+      <stop offset="100%" stop-color="#0a0714"/>
+    </linearGradient>
+    <linearGradient id="reedsGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8af4e"/>
+      <stop offset="35%" stop-color="#15803d"/>
+      <stop offset="100%" stop-color="#0f291e"/>
+    </linearGradient>
+    <linearGradient id="lakeWater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1438" stop-opacity="0.3"/>
+      <stop offset="40%" stop-color="#141c42" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#091329" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="40%" stop-color="#f59e0b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Lake Water Surface with Reflection -->
+  <rect x="0" y="820" width="1920" height="260" fill="url(#lakeWater)"/>
+
+  <!-- Water Rocks in Lake with Reflections -->
+  <ellipse cx="380" cy="880" rx="38" ry="18" fill="#1b152b"/>
+  <ellipse cx="560" cy="910" rx="55" ry="24" fill="#161024"/>
+  <ellipse cx="820" cy="870" rx="42" ry="16" fill="#1b152b"/>
+
+  <!-- Left Riverbank Mound -->
+  <path d="M0,890 Q240,860 460,940 L460,1080 L0,1080 Z" fill="url(#bankGrad)"/>
+
+  <!-- Right Foreground Bluff / Hill where Traveler stands -->
+  <path d="M1240,1080 Q1380,780 1920,720 L1920,1080 Z" fill="url(#bankGrad)"/>
+
+  <!-- Traditional Stone Lantern and Traveler are now interactive live elements in HTML stage -->
+
+  <!-- Swaying Tall Grass / Reeds on the Right Edge -->
+  <g class="reeds-group" stroke="url(#reedsGrad)" stroke-width="4" stroke-linecap="round" fill="none">
+    <path class="reed r1" d="M1360,980 Q1370,860 1350,780"/>
+    <path class="reed r2" d="M1390,990 Q1410,870 1380,760"/>
+    <path class="reed r3" d="M1420,1010 Q1430,880 1445,770"/>
+    <path class="reed r4" d="M1460,970 Q1450,850 1475,750"/>
+    <path class="reed r5" d="M1500,980 Q1520,860 1490,740"/>
+    <path class="reed r6" d="M1540,1000 Q1530,870 1560,760"/>
+    <path class="reed r7" d="M1580,960 Q1600,840 1575,730"/>
+    <path class="reed r8" d="M1620,990 Q1610,850 1640,750"/>
+    <path class="reed r9" d="M1660,970 Q1680,830 1660,720"/>
+    <path class="reed r10" d="M1720,950 Q1740,820 1715,710"/>
+    <path class="reed r11" d="M1780,960 Q1770,810 1800,700"/>
+  </g>
+
+</svg>

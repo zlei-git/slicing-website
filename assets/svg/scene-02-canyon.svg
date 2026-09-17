@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <linearGradient id="canyon-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0720"/>
+      <stop offset="50%" stop-color="#2a1040"/>
+      <stop offset="75%" stop-color="#701a4e"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+
+    <linearGradient id="water-stream" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bae6fd" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <linearGradient id="wall-left" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#080820"/>
+      <stop offset="85%" stop-color="#18113a"/>
+      <stop offset="100%" stop-color="#241a54"/>
+    </linearGradient>
+
+    <linearGradient id="wall-right" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#080820"/>
+      <stop offset="85%" stop-color="#18113a"/>
+      <stop offset="100%" stop-color="#241a54"/>
+    </linearGradient>
+
+    <filter id="canyon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dramatic Sunset Canyon Sky -->
+  <rect width="1920" height="1080" fill="url(#canyon-sky)"/>
+
+  <!-- Distant Mountain Peak Silhouette at Vanishing Point -->
+  <polygon points="960,450 880,560 1040,560" fill="#3b0f42" opacity="0.9"/>
+  <polygon points="960,480 910,560 1010,560" fill="#581658" opacity="0.85"/>
+
+  <!-- ==============================================
+       LEFT SKYSCRAPER PERSPECTIVE WALL
+       ============================================== -->
+  <polygon points="0,0 840,480 840,780 0,1080" fill="url(#wall-left)" stroke="#3b2b74" stroke-width="3"/>
+  
+  <!-- Left Windows Rows in Vanishing Perspective -->
+  <g fill="#f59e0b" opacity="0.75" filter="url(#canyon-glow)">
+    <!-- Column 1 -->
+    <polygon points="120,120 180,150 180,240 120,210"/>
+    <polygon points="120,280 180,305 180,390 120,365"/>
+    <polygon points="120,440 180,460 180,540 120,520"/>
+    <polygon points="120,600 180,615 180,690 120,675"/>
+    
+    <!-- Column 2 (closer to vanishing point) -->
+    <polygon points="340,240 380,260 380,320 340,300"/>
+    <polygon points="340,360 380,375 380,430 340,415"/>
+    <polygon points="340,470 380,485 380,540 340,525"/>
+    
+    <!-- Column 3 -->
+    <polygon points="560,360 590,375 590,420 560,405"/>
+    <polygon points="560,450 590,460 590,505 560,495"/>
+    <polygon points="700,430 720,440 720,470 700,460"/>
+  </g>
+
+  <!-- ==============================================
+       RIGHT SKYSCRAPER PERSPECTIVE WALL
+       ============================================== -->
+  <polygon points="1920,0 1080,480 1080,780 1920,1080" fill="url(#wall-right)" stroke="#3b2b74" stroke-width="3"/>
+  
+  <!-- Right Windows Rows in Vanishing Perspective -->
+  <g fill="#f59e0b" opacity="0.75" filter="url(#canyon-glow)">
+    <!-- Column 1 -->
+    <polygon points="1800,120 1740,150 1740,240 1800,210"/>
+    <polygon points="1800,280 1740,305 1740,390 1800,365"/>
+    <polygon points="1800,440 1740,460 1740,540 1800,520"/>
+    <polygon points="1800,600 1740,615 1740,690 1800,675"/>
+
+    <!-- Column 2 -->
+    <polygon points="1580,240 1540,260 1540,320 1580,300"/>
+    <polygon points="1580,360 1540,375 1540,430 1580,415"/>
+    <polygon points="1580,470 1540,485 1540,540 1580,525"/>
+
+    <!-- Column 3 -->
+    <polygon points="1360,360 1330,375 1330,420 1360,405"/>
+    <polygon points="1360,450 1330,460 1330,505 1360,495"/>
+    <polygon points="1220,430 1200,440 1200,470 1220,460"/>
+  </g>
+
+  
+  <!-- ==============================================
+       CROSS-CANYON SUSPENSION SKYBRIDGE WITH LIVING PEDESTRIANS
+       ============================================== -->
+  <g id="canyon-skybridge">
+    <!-- Main Suspension Cables -->
+    <path d="M420,530 Q960,600 1500,530" stroke="#f59e0b" stroke-width="3" fill="none" opacity="0.8" filter="url(#canyon-glow)"/>
+    <!-- Bridge Walkway Deck -->
+    <line x1="420" y1="560" x2="1500" y2="560" stroke="#38bdf8" stroke-width="4" opacity="0.9" filter="url(#canyon-glow)"/>
+    <!-- Vertical Hangers -->
+    <g stroke="#818cf8" stroke-width="1.2" opacity="0.6">
+      <line x1="550" y1="540" x2="550" y2="560"/>
+      <line x1="680" y1="552" x2="680" y2="560"/>
+      <line x1="820" y1="560" x2="820" y2="560"/>
+      <line x1="960" y1="565" x2="960" y2="560"/>
+      <line x1="1100" y1="560" x2="1100" y2="560"/>
+      <line x1="1240" y1="552" x2="1240" y2="560"/>
+      <line x1="1370" y1="540" x2="1370" y2="560"/>
+    </g>
+    <!-- Living Pedestrians Walking Across the Skybridge -->
+    <g class="char-bridge-walker-1">
+      <ellipse cx="860" cy="542" rx="4.5" ry="5.5" fill="#080820"/>
+      <path d="M856,548 L864,548 L865,560 L855,560 Z" fill="#080820"/>
+    </g>
+    <g class="char-bridge-walker-2">
+      <ellipse cx="1060" cy="542" rx="4.5" ry="5.5" fill="#080820"/>
+      <path d="M1056,548 L1064,548 L1065,560 L1055,560 Z" fill="#080820"/>
+    </g>
+  </g>
+
+  <!-- ==============================================
+       CENTRAL RIVER CHANNEL & CASCADING WATERFALL
+       ============================================== -->
+  <!-- Gorge Riverbed -->
+  <polygon points="840,560 1080,560 1280,1080 640,1080" fill="#040b20"/>
+
+  <!-- Water Surface with Waves -->
+  <polygon points="860,560 1060,560 1240,1080 680,1080" fill="url(#water-stream)"/>
+
+  <!-- Cascading Water Foams & Flow Streaks -->
+  <g stroke="#ffffff" opacity="0.8" stroke-linecap="round">
+    <line x1="940" y1="580" x2="980" y2="580" stroke-width="3" filter="url(#canyon-glow)"/>
+    <line x1="910" y1="650" x2="1010" y2="650" stroke-width="3.5"/>
+    <line x1="860" y1="740" x2="1060" y2="740" stroke-width="4.5"/>
+    <line x1="800" y1="860" x2="1120" y2="860" stroke-width="6" filter="url(#canyon-glow)"/>
+    <line x1="720" y1="990" x2="1200" y2="990" stroke-width="7"/>
+  </g>
+
+  <!-- Canyon Rock Boulders Framing the Foreground -->
+  <polygon points="0,960 420,880 520,1080 0,1080" fill="#070418" stroke="#1d1338" stroke-width="3"/>
+  <polygon points="1920,960 1500,880 1400,1080 1920,1080" fill="#070418" stroke="#1d1338" stroke-width="3"/>
+</svg>
