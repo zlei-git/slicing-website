@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assets';
 
 export const Scene3FusionCore: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ export const Scene3FusionCore: React.FC = () => {
       {/* 1. FULLSCREEN BACKGROUND VIDEO */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <video
-          src="/page3.mp4"
+          src={getAssetUrl('page3.mp4')}
           autoPlay
           loop
           muted

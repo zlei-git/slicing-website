@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, Sun, ArrowRight } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assets';
 
 export const Scene5SeaArch: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ export const Scene5SeaArch: React.FC = () => {
           muted
           playsInline
           className="w-full h-full object-cover opacity-25 filter brightness-85"
-          src="/segesta-dribbble.mp4"
+          src={getAssetUrl('segesta-dribbble.mp4')}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a0415]/90 via-[#360d30]/85 via-[#631c43]/80 to-[#080310]" />
       </div>

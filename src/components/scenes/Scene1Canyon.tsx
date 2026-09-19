@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assets';
 
 export const Scene1Canyon: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ export const Scene1Canyon: React.FC = () => {
       {/* 1. FULLSCREEN USER PHOTO AS HOMEPAGE BACKGROUND */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <img
-          src="/hero-metropolis-canyon.jpg"
+          src={getAssetUrl('hero-metropolis-canyon.jpg')}
           alt="Segesta Metropolis Canyon"
           className="w-full h-full object-cover object-center filter brightness-105 contrast-105"
         />
