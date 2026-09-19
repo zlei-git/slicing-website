@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#111;">
+<iframe id="ifr" src="http://localhost:3000" style="width:1920px;height:1080px;border:none;"></iframe>
+<script>
+  window.addEventListener('message', () => {});
+  setTimeout(() => {
+    const ifr = document.getElementById('ifr');
+    ifr.contentWindow.scrollTo(0, 1080); // scroll to Scene 2
+  }, 1000);
+</script>
+</body>
+</html>
